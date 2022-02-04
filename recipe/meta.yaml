@@ -32,7 +32,7 @@ test:
     - if not exist %LIBRARY_INC%\\pugiconfig.hpp exit 1  # [win]
 
 about:
-  home: http://pugixml.org/
+  home: https://pugixml.org/
   license: MIT
   license_family: MIT
   license_file: README.md
@@ -44,7 +44,7 @@ about:
     for complex data-driven tree queries. Full Unicode support is also available, with
     Unicode interface variants and conversions between different Unicode encodings
     (which happen automatically during parsing/saving)
-  doc_url: http://pugixml.org/
+  doc_url: https://pugixml.org/
   dev_url: https://github.com/zeux/pugixml
 
 extra:
