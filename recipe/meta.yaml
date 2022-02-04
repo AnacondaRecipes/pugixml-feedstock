@@ -19,7 +19,8 @@ build:
 requirements:
   build:
     - cmake
-    - make
+    - make  # [not win]
+    - m2-make  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
