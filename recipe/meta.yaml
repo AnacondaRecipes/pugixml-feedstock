@@ -12,14 +12,15 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('pugixml', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
-    - make
+    - make  # [not win]
+    - m2-make  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
@@ -31,7 +32,7 @@ test:
     - if not exist %LIBRARY_INC%\\pugiconfig.hpp exit 1  # [win]
 
 about:
-  home: http://pugixml.org/
+  home: https://pugixml.org/
   license: MIT
   license_family: MIT
   license_file: README.md
@@ -43,7 +44,7 @@ about:
     for complex data-driven tree queries. Full Unicode support is also available, with
     Unicode interface variants and conversions between different Unicode encodings
     (which happen automatically during parsing/saving)
-  doc_url: http://pugixml.org/
+  doc_url: https://pugixml.org/
   dev_url: https://github.com/zeux/pugixml
 
 extra:
