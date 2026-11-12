@@ -12,15 +12,18 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('pugixml', max_pin='x.x') }}
 
 requirements:
   build:
-    - cmake
+    - cmake <4
     - make  # [not win]
-    - m2-make  # [win]
+    # m2-make is not in main for win-arm64
+    - m2-make  # [win and x86_64]
+    - msys2-make  # [win and arm64]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
@@ -51,3 +54,6 @@ extra:
   recipe-maintainers:
     - scopatz
     - SylvainCorlay
+  skip-lints:
+    # m2-make is not in main for win-arm64
+    - m2_must_be_updated_to_msys2
