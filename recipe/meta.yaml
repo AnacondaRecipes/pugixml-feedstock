@@ -18,9 +18,11 @@ build:
 
 requirements:
   build:
-    - cmake
+    - cmake <4
     - make  # [not win]
-    - m2-make  # [win]
+    - m2-make  # [win and x86_64]
+    - msys2-make  # [win and arm64]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
