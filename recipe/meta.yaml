@@ -20,6 +20,7 @@ requirements:
   build:
     - cmake <4
     - make  # [not win]
+    # m2-make is not in main for win-arm64
     - m2-make  # [win and x86_64]
     - msys2-make  # [win and arm64]
     - {{ stdlib('c') }}
@@ -53,3 +54,6 @@ extra:
   recipe-maintainers:
     - scopatz
     - SylvainCorlay
+  skip-lints:
+    # m2-make is not in main for win-arm64
+    - m2_must_be_updated_to_msys2
